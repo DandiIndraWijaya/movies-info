@@ -9,18 +9,13 @@ module.exports = {
     },
     module: {
         rules: [
-                 
-               
                     {
-                        test: [/\.css$/], use: "style-loader"
+                        test: /\.(sass|scss|css)$/,
+                        use: ['style-loader','css-loader','sass-loader']
                     },
                     {
-                        test: [/\.css$/], use: "css-loader"
-                    },
-                    {
-                        test: [/\.jpg$/], use: "file-loader"
+                        test: [/\.(jpg|svg|eot|woff|woff2|ttf)$/], use: "file-loader"
                     }
-             ,
         ]
     },
     plugins: [

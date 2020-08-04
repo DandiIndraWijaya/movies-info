@@ -1,5 +1,5 @@
 
-// Menampilkan movie hasil fetch data
+// Menampilkan list movie hasil fetch data
 const theMovie =  movies => {
     let theMovie = ``;
     movies.forEach(movie => {
@@ -11,7 +11,7 @@ const theMovie =  movies => {
                     <h6>${movie.title} </h6>
                     <div class="rating"><span class="vote">${movie.vote_average * 10}</span><sup>%</sup></div>
                     <p>${release_date.toDateString()}</p>
-                    <div class="movie-button"><button class="detail">Detail</button> <button class="trailer"><i class="fa fa-lg fa-facebook" style="width: 20px" aria-hidden="true"></i>Trailer</button></div>
+                    <div class="movie-button"><button class="detail">Detail</button> <button class="trailer" data-movieid="${movie.id}">Trailer</button></div>
                 </div>
         </div>`;
     });
@@ -23,7 +23,6 @@ const theMovie =  movies => {
     const getTheMovie = document.querySelectorAll('.rating');
     const getVote = document.querySelectorAll('.vote');
     for(let i = 0 ; i < getTheMovie.length ; i++){
-        console.log(getVote[i].textContent);
         if(getVote[i].textContent <= 50){
             getTheMovie[i].classList.add('low-rate')
         }else if(getVote[i].textContent > 50 && getVote[i].textContent < 70){
@@ -33,10 +32,7 @@ const theMovie =  movies => {
         }
     }
 
-    // Memformat date
     
 }
 
-export {
-    theMovie
-}
+export default theMovie;
