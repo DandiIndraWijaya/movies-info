@@ -1,7 +1,6 @@
 // menampilkan modal untuk menonton trailer
 const watchTrailer = (key) => {
-    let modal = document.querySelector('.modalClass');
-    let modalContent = document.querySelector('.modal-content');
+    let modalContent = document.querySelector('.modal-trailer-content');
 
     if(key != null){
         modalContent.innerHTML = `
@@ -10,8 +9,6 @@ const watchTrailer = (key) => {
         modalContent.innerHTML = `
         <center><h2>Video not Available</h2></center>`
     }
-
-
     
 }
 

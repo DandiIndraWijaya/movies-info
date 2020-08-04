@@ -11,7 +11,7 @@ const theMovie =  movies => {
                     <h6>${movie.title} </h6>
                     <div class="rating"><span class="vote">${movie.vote_average * 10}</span><sup>%</sup></div>
                     <p>${release_date.toDateString()}</p>
-                    <div class="movie-button"><button class="detail">Detail</button> <button class="trailer" data-movieid="${movie.id}">Trailer</button></div>
+                    <div class="movie-button"><button class="detail" data-movieid="${movie.id}">Detail</button> <button class="trailer" data-movieid="${movie.id}">Trailer</button></div>
                 </div>
         </div>`;
     });

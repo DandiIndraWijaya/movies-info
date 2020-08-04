@@ -134,7 +134,7 @@ main {
 
 
 
-.modalClass {
+.modal-class {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -154,11 +154,19 @@ main {
   }
 
   /* Modal Content */
-  .modal-content {
+  .modal-trailer-content {
     background-color: black;
     margin: auto;
     border: 1px solid #888;
     width: 945px;
+    height: 531px;
+  }
+
+  .modal-detail-content {
+    /* background-color: #242429; */
+    margin: auto;
+    border: 1px solid #888;
+    width: 100%;
     height: 531px;
   }
   
@@ -181,6 +189,19 @@ main {
 .video {
     width: 100%;
     height: 100%
+}
+.layer {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.desc {
+    color: white;
+    margin: 70px 20px;
+    position: relative;
 }
 
 @media screen and (max-width: 1000px){

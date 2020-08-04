@@ -1,4 +1,4 @@
-import { upComing, movieTrailer } from './fetchData.js';
+import { upComing, movieTrailer, movieDetail } from './fetchData.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -23,26 +23,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Kode untuk menampilkan modal
+    const showModal = (category) => {
+            let modal = ``;
+            if(category == 'trailer'){
+                modal = document.getElementById("modal-trailer");
+            }else{
+                modal = document.getElementById("modal-detail");
+            }
+            modal.style.display = "block";
+
+            // Kode untuk menutup modal
+            const span = document.getElementsByClassName("close-modal");
+            for(let i = 0 ; i < span.length ; i++){
+                span[i].addEventListener('click', () => {
+                    const video = document.querySelector('iframe') || null;
+                    if(video != null){
+                        let iframeSrc = video.src;
+                        video.src = iframeSrc;
+                    }
+                    
+                    modal.style.display = "none";
+                }) 
+            }
+            
+    }
+
     // Kode saat mengklik tombol detail dan tombol trailer
     document.addEventListener('click',function (event) {
         if(event.target.classList.contains('trailer')){
-            let modal = document.getElementById("modalId");
+            document.querySelector('.modal-trailer-content').innerHTML = ``;
+            showModal('trailer');
             const movieid = event.target.dataset.movieid;
-            document.querySelector('.modal-content').innerHTML = 'loading';
-            modal.style.display = "block";
-
-            const span = document.getElementsByClassName("close-modal")[0];
-
-            span.onclick = function() {
-                const video = document.querySelector('iframe');
-                let iframeSrc = video.src;
-                video.src = iframeSrc;
-                
-                modal.style.display = "none";
-            }
-            
             movieTrailer(movieid);
             
+            
+        }else if(event.target.classList.contains('detail')){
+            document.querySelector('.modal-detail-content').innerHTML = ``;
+            showModal('detail');
+            const movieid = event.target.dataset.movieid;
+            movieDetail(movieid);
         }
     });
 
