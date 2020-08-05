@@ -41,7 +41,6 @@ const movieDetail = (movieid) => {
     axios.get(`${baseUrl}/${movieid}?api_key=913b0e1fdb44fad18d3a0f8537c0ebcb&language=en-US`)
         .then(response => {
             const movie = response.data;
-            console.log(response.data)
             showDetail(movie);
         })
 }

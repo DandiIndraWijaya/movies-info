@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             
         }else if(event.target.classList.contains('detail')){
-            document.querySelector('.modal-detail-content').innerHTML = ``;
+            document.querySelector('movie-detail').delete();
             showModal('detail');
             const movieid = event.target.dataset.movieid;
             movieDetail(movieid);
