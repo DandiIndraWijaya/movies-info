@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let textLink = document.querySelectorAll('.text-link');
     const searchInfo = document.querySelector('search-info');
 
-    searchInfo.clear();
-    textLink[0].classList.add('aktif');
+    searchInfo.clear(); // Menghaspus informasi hasil pencarian
+    textLink[0].classList.add('aktif');   // Memberi warna text link upcoming
     upComing();
 
     // Kode saat mengklik link pada nav
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link[i].addEventListener('click', (event) => {
             event.preventDefault();
 
-            searchInfo.clear();
+            searchInfo.clear(); // Menghaspus informasi hasil pencarian
 
             // merubah warna text link pada nav
             textLink[0].classList.remove("aktif");
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
             textLink[2].classList.remove("aktif");
             textLink[i].classList.add("aktif");
 
-            document.querySelector('.movies-container').innerHTML = ``;
-            document.querySelector('loading-data').start();
+            document.querySelector('.movies-container').innerHTML = ``; // Menghapus list movie
+            document.querySelector('loading-data').start(); // Menjalankan loading
 
             // Request data
             if(i == 0){
@@ -42,20 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
     btnSearch.addEventListener('click', (event) => {
         event.preventDefault();
 
-
+        // Menghilangkan warna text link pada nav
         textLink[0].classList.remove("aktif");
         textLink[1].classList.remove("aktif");
         textLink[2].classList.remove("aktif");
 
 
-        searchInfo.clear();
+        searchInfo.clear(); // Menghapus list movie
         const keyword = document.querySelector('#keyword').value;
 
         
-        document.querySelector('.movies-container').innerHTML = ``;
-        document.querySelector('loading-data').start();
+        document.querySelector('.movies-container').innerHTML = ``;   // Menghapus list movie
+        document.querySelector('loading-data').start();  // Menjalankan loading
 
-        search(keyword);
+        search(keyword); // Menampilkan data hasil pencarian
     })
 
 
@@ -74,11 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const span = document.getElementsByClassName("close-modal");
             for(let i = 0 ; i < span.length ; i++){
                 span[i].addEventListener('click', () => {
+
+                    // Jika modal-trailer ditutup
                     const video = document.querySelector('watch-trailer');
                     if(i == 1 && video.checkVideo() == true){
                         video.stop();
                         video.movie = null;
                     }
+
                     modal.style.display = "none";
                 }) 
             }
@@ -88,16 +91,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Kode saat mengklik tombol detail dan tombol trailer
     document.addEventListener('click',function (event) {
         if(event.target.classList.contains('trailer')){
-            document.querySelector('watch-trailer').clear();
+
+            document.querySelector('watch-trailer').clear();  // Menghapus video trailer sebelumnya
             showModal('trailer');
-            const movieid = event.target.dataset.movieid;
+            const movieid = event.target.dataset.movieid;   // Mengambil movie id
             movieTrailer(movieid);
             
             
         }else if(event.target.classList.contains('detail')){
-            document.querySelector('movie-detail').clear();
+
+            document.querySelector('movie-detail').clear();  // Menghapus movie detail sebelumnya
             showModal('detail');
-            const movieid = event.target.dataset.movieid;
+            const movieid = event.target.dataset.movieid;   // Mengambil movie id
             movieDetail(movieid);
         }
     });

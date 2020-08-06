@@ -1,7 +1,5 @@
 import axios from 'axios';
 import theMovie from './views/theMovie.js'
-import watchTrailer from './views/watchTrailer.js'
-import showDetail from './views/showDetail.js'
 
 const baseUrl = 'https://api.themoviedb.org/3/movie';
 const searchBaseUrl = 'https://api.themoviedb.org/3/search/movie';
@@ -66,7 +64,7 @@ const movieTrailer = (movieid) => {
             }
             videos.forEach(video => {
                 if(video.type == 'Trailer'){
-                    watchTrailer(video.key);
+                    document.querySelector('watch-trailer').movie = video.key;
                 }
             })
         }).catch(response => {
@@ -81,7 +79,7 @@ const movieDetail = (movieid) => {
     axios.get(`${baseUrl}/${movieid}?api_key=913b0e1fdb44fad18d3a0f8537c0ebcb&language=en-US`)
         .then(response => {
             const movie = response.data;
-            showDetail(movie);
+            document.querySelector('movie-detail').movie = movie;
         })
 }
 
