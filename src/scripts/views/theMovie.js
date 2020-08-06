@@ -1,13 +1,15 @@
 
 // Menampilkan list movie hasil fetch data
 const theMovie =  movies => {
+    document.querySelector('loading-data').stop();
+
     let theMovie = ``;
     movies.forEach(movie => {
         const release_date = new Date(movie.release_date)
         theMovie += `
         <div class="col-6 col-sm-6 col-md-3">
                 <div class="card the-movie">
-                    <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2${movie.poster_path}">
+                    <img alt="Movie Poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2${movie.poster_path}">
                     <h6>${movie.title} </h6>
                     <div class="rating"><span class="vote">${movie.vote_average * 10}</span><sup>%</sup></div>
                     <p>${release_date.toDateString()}</p>

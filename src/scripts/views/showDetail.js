@@ -4,7 +4,6 @@ import '../components/movie-detail.js'
 const showDetail = (movie) => {
 
     document.querySelector('movie-detail').movie = movie;
-
     
 }
 

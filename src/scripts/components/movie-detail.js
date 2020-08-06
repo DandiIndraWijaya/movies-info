@@ -9,7 +9,7 @@ class MovieDetail extends HTMLElement {
         this.render();
     }
 
-    delete(){
+    clear(){
         this.shadowDOM.innerHTML = '';
     }
 

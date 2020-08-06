@@ -9,4 +9,6 @@ import "jquery/dist/jquery.min.js";
 
 import "./styles/style.css"
 import "./scripts/components/nav-bar.js"
+import "./scripts/components/loading-data.js"
+import "./scripts/components/search-info.js"
 import "./scripts/main.js"
