@@ -2,9 +2,9 @@ import { upComing, topRated, popular, search, movieTrailer, movieDetail } from '
 
 document.addEventListener('DOMContentLoaded', () => {
     let textLink = document.querySelectorAll('.text-link');
-    const searchInfo = document.querySelector('search-info');
+    const containerInfo = document.querySelector('container-info');
 
-    searchInfo.clear(); // Menghaspus informasi hasil pencarian
+    containerInfo.clear(); // Menghaspus informasi hasil pencarian
     textLink[0].classList.add('aktif');   // Memberi warna text link upcoming
     upComing();
 
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link[i].addEventListener('click', (event) => {
             event.preventDefault();
 
-            searchInfo.clear(); // Menghaspus informasi hasil pencarian
+            containerInfo.clear(); // Menghaspus informasi hasil pencarian
 
             // merubah warna text link pada nav
             textLink[0].classList.remove("aktif");
@@ -27,10 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Request data
             if(i == 0){
+                containerInfo.category = 'Upcoming Movie';
                 upComing(); // Menampilkan data upcoming movie
             }else if(i == 1){
+                containerInfo.category = 'Top Rated Movie';
                 topRated(); // Menampilkan data top rated movie
             }else{
+                containerInfo.category = 'Popular Movie';
                 popular(); // Menampilkan data popular movie
             }
         });
@@ -48,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         textLink[2].classList.remove("aktif");
 
 
-        searchInfo.clear(); // Menghapus list movie
+        containerInfo.clear(); // Menghapus list movie
         const keyword = document.querySelector('#keyword').value;
 
         

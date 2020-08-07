@@ -45,7 +45,7 @@ const popular = () => {
 const search = (keyword) => {
     axios.get(`${searchBaseUrl}?api_key=913b0e1fdb44fad18d3a0f8537c0ebcb&language=en-US&page=1&query= ${keyword}`)
         .then(response => {
-           document.querySelector('search-info').keyword = keyword; 
+           document.querySelector('container-info').keyword = keyword; 
            const movies = response.data.results;
            theMovie(movies);
         }).catch(response => {
